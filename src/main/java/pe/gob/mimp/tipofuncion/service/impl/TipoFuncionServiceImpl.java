@@ -102,6 +102,16 @@ public class TipoFuncionServiceImpl implements TipoFuncionService {
 
         return null;
     }
+    
+    @Override
+    public Integer getRecordCount(FindByParamBean findByParamBean){
+
+        if (findByParamBean.getParameters() == null) {
+            findByParamBean.setParameters(new HashMap<>());
+        }
+        Integer count = tipoFuncionRepository.getRecordCount(findByParamBean.getParameters());
+        return count;
+    }
 
     @Override
     public TipoFuncionBean find(BigDecimal id) {

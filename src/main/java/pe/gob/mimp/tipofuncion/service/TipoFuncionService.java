@@ -25,6 +25,8 @@ public interface TipoFuncionService {
 
     List<TipoFuncionBean> loadTipoFuncionList(FindByParamBean findByParamBean) throws Exception;
 
+    Integer getRecordCount(FindByParamBean findByParamBean);
+    
     TipoFuncionBean find(BigDecimal id);
 
 }

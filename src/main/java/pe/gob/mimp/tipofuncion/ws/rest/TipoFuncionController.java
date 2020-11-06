@@ -88,6 +88,20 @@ public class TipoFuncionController {
         return ResponseEntity.ok(response);
 
     }
+    
+    @PostMapping(value = "/getRecordCount", consumes = APPLICATION_JSON_VALUE)
+    public ResponseEntity<ResponseData<?>> getRecordCount(@RequestBody FindByParamBean findByParamBean) throws Exception {
+
+        Integer count = tipoFuncionService.getRecordCount(findByParamBean);
+
+        ResponseData<Object> response = new ResponseData<>();
+        response.setCod(HttpStatus.OK.value());
+        response.setMsg(HttpStatus.OK.getReasonPhrase());
+        response.setResultado(count);
+
+        return ResponseEntity.ok(response);
+
+    }
 
     @GetMapping(value = "/find/{id}")
     public ResponseEntity<ResponseData<?>> find(@PathVariable("id") BigDecimal id) throws Exception {
